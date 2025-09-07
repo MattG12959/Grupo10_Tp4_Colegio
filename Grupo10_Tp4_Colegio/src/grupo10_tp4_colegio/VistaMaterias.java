@@ -47,7 +47,6 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         btn_guardar = new javax.swing.JButton();
 
         setBorder(null);
-        setClosable(true);
         setIconifiable(true);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
