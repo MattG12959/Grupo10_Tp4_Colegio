@@ -30,6 +30,14 @@ public class Alumno {
         this.materias = new ArrayList<>();
     }
 
+    public Alumno(int legajo, String apellido, String nombre) {
+        this.legajo = legajo;
+        this.apellido = apellido;
+        this.nombre = nombre;
+    }
+    
+    
+
     public int getLegajo() {
         return legajo;
     }

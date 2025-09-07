@@ -5,6 +5,7 @@
 package grupo10_tp4_colegio;
 
 import java.util.HashSet;
+import javax.swing.UIManager;
 
 /**
  *
@@ -12,12 +13,17 @@ import java.util.HashSet;
  */
 public class Colegio extends javax.swing.JFrame {
 
+    //HASHSET
+    public static HashSet<Materia> materia = new HashSet<>();
+    public static HashSet<Alumno> alumno = new HashSet<>();
+
     /**
      * Creates new form Ventana
      */
     public Colegio() {
         initComponents();
-        agregregarInformacion();
+        agregarInformacion();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -29,21 +35,59 @@ public class Colegio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 607, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 439, Short.MAX_VALUE)
+        );
+
+        jMenu1.setText("( EDITAR )");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+
+        jMenu2.setText("jMenu2");
+        jMenu1.add(jMenu2);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+
+        VistaMaterias ventana = new VistaMaterias();
+        jDesktopPane1.add(ventana);
+        ventana.setVisible(true);
+        
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -77,27 +121,29 @@ public class Colegio extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Colegio().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 
     //Deje los HashSet y los add para agregar las materias y alumnos
-    private void agregregarInformacion(){
-        //HashSet<Materias> materia = new HashSet<>();
-        //HashSet<Alumnos> alumno = new HashSet<>();
+    public static void agregarInformacion() {
+       
+        materia.add(new Materia(1,"Web2",2026));
+        materia.add(new Materia(2,"Matemáticas",2025));
+        materia.add(new Materia(3,"Laboratoro 1",2025));
+   
+        alumno.add(new Alumno(1001, "Lopez", "Martin"));
+        alumno.add(new Alumno(1001, "López", "Martin"));
+        alumno.add(new Alumno(1002, "Martínez", "Brenda"));
         
-        /*
-        
-        materia.add(1,"Web2",2026);
-        materia.add(2,"Matemáticas",2025);
-        materia.add(3,"Laboratoro 1",2025);
-        
-        alumno.add(1001,"López", "Martin");
-        alumno.add(1002,"Martínez","Brenda");
-        
-        */
+         
     }
 }
