@@ -6,6 +6,7 @@
 package grupo10_tp4_colegio;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -21,13 +22,13 @@ public class Alumno {
     int legajo;
     private String apellido;
     private String nombre;
-    private List<Materia> materias;
+    private HashSet<Materia> materias;
 
     public Alumno(int legajo, String apellido, String nombre, List<Materia> materias) {
         this.legajo = legajo;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.materias = new ArrayList<>();
+        this.materias = new HashSet<>();
     }
 
     public Alumno(int legajo, String apellido, String nombre) {
@@ -62,11 +63,11 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public List<Materia> getMaterias() {
+    public HashSet<Materia> getMaterias() {
         return materias;
     }
 
-    public void setMaterias(List<Materia> materias) {
+    public void setMaterias(HashSet<Materia> materias) {
         this.materias = materias;
     }
     
