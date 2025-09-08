@@ -5,17 +5,20 @@
  */
 package grupo10_tp4_colegio;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
  */
-public class Alumnos extends javax.swing.JInternalFrame {
+public class VistaAlumnos extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Alumnos
      */
-    public Alumnos() {
+    public VistaAlumnos() {
         initComponents();
+   
     }
 
     /**
@@ -128,8 +131,32 @@ public class Alumnos extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-        
-        
+          try{
+                int legajo =Integer.parseInt(jtLegajo.getText().trim());
+                String apellido =jtApellido.getText().trim();
+                String nombre = jtNombre.getText().trim();
+                
+                //Validación
+         if (apellido.isEmpty() || nombre.isEmpty()){
+         
+                JOptionPane.showMessageDialog(this, "apellido y nombre no pueden estar vacíos", "Error" , JOptionPane.ERROR_MESSAGE);
+                return;
+         }
+         
+                //Simulación de guardado
+                
+         String mensaje= "Legajo: " + legajo + "\n Apellido: " + apellido + "\n Nombre" + nombre;
+         JOptionPane.showMessageDialog(this, "Datos guardados: \n" + mensaje );
+                
+                //Limpiar campos
+                jtLegajo.setText(" ");
+                jtApellido.setText(" ");
+                jtNombre.setText(" ");
+         
+          }catch (NumberFormatException e){
+          
+              JOptionPane.showMessageDialog(this, "El legajo debe ser un número entero válido." , "Error", JOptionPane.ERROR_MESSAGE );
+          }
         
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -148,9 +175,5 @@ public class Alumnos extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
 
-private void guardarAlumno (Alumno alumno){
-
-    
-}
 
 }

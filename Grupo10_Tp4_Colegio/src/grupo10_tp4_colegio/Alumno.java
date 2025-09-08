@@ -18,7 +18,7 @@ import java.util.List;
  * Franzinni Tatiana
  */
 public class Alumno {
-    private int legajo;
+    int legajo;
     private String apellido;
     private String nombre;
     private List<Materia> materias;
