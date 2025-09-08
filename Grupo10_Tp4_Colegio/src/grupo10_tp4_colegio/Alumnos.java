@@ -128,6 +128,9 @@ public class Alumnos extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_jbGuardarActionPerformed
 
 
@@ -143,4 +146,11 @@ public class Alumnos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtLegajo;
     private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
+
+
+private void guardarAlumno (Alumno alumno){
+
+    
+}
+
 }
