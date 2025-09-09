@@ -9,8 +9,14 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author matia
- */
+ * @author Grupo10 TP4
+ * Altamirano Karina
+ * Gianfranco Antonacci Matías
+ * Bequis Marcos Ezequiel
+ * Dave  Natalia
+ * Quiroga Dorzan Alejo
+ * Franzinni Tatiana
+  */
 public class Colegio extends javax.swing.JFrame {
 
     //HASHSET
