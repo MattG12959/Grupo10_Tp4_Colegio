@@ -158,6 +158,27 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
                 return;
          }
          
+           // Verificar que no se repita el Legajo con el hashset
+            boolean existe = false;
+            for (Alumno aux : Colegio.alumno) {
+                 if (aux.getLegajo()== legajo) {
+                    existe = true;
+                    break;
+                }
+            }
+
+            if (existe) {
+                JOptionPane.showMessageDialog(this,"Ya existe un legajo con ese código.","Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Crear nuevo legajo y agregar al HashSet
+            Alumno alumno = new Alumno (legajo, apellido, nombre);
+            Colegio.alumno.add(alumno);
+            
+            
+            JOptionPane.showMessageDialog(this,"El alumno se ha guardado correctamente.");
+         
                 //Simulación de guardado
                 
          String mensaje= "Legajo: " + legajo + "\n Apellido: " + apellido + "\n Nombre" + nombre;
@@ -172,7 +193,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
           
               JOptionPane.showMessageDialog(this, "El legajo debe ser un número entero válido." , "Error", JOptionPane.ERROR_MESSAGE );
           }
-        
+  
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
