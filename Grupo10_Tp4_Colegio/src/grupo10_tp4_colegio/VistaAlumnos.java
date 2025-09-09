@@ -8,13 +8,8 @@ package grupo10_tp4_colegio;
 import javax.swing.JOptionPane;
 
 /**
- * @author Grupo10 TP4
- * Altamirano Karina
- * Gianfranco Antonacci Matías
- * Bequis Marcos Ezequiel
- * Dave  Natalia
- * Quiroga Dorzan Alejo
- * Franzinni Tatiana
+ * @author Grupo10 TP4 Altamirano Karina Gianfranco Antonacci Matías Bequis
+ * Marcos Ezequiel Dave Natalia Quiroga Dorzan Alejo Franzinni Tatiana
  */
 public class VistaAlumnos extends javax.swing.JInternalFrame {
 
@@ -23,7 +18,7 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
      */
     public VistaAlumnos() {
         initComponents();
-   
+
     }
 
     /**
@@ -47,7 +42,8 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
         jbSalir = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("FORMULARIO DE ALUMNOS");
 
         jLabel2.setText("LEGAJO:");
@@ -108,22 +104,19 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
                         .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(53, 53, 53))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(89, 89, 89))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(20, 20, 20)
                         .addComponent(jLabel2)
                         .addGap(22, 22, 22))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -146,63 +139,68 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-          try{
-                int legajo =Integer.parseInt(jtLegajo.getText().trim());
-                String apellido =jtApellido.getText().trim();
-                String nombre = jtNombre.getText().trim();
-                
-                //Validación
-         if (apellido.isEmpty() || nombre.isEmpty()){
-         
-                JOptionPane.showMessageDialog(this, "apellido y nombre no pueden estar vacíos", "Error" , JOptionPane.ERROR_MESSAGE);
+        try {
+            int legajo = Integer.parseInt(jtLegajo.getText().trim());
+            String apellido = jtApellido.getText().trim();
+            String nombre = jtNombre.getText().trim();
+
+            //Validación
+            if (apellido.isEmpty() || nombre.isEmpty()) {
+
+                JOptionPane.showMessageDialog(this, "apellido y nombre no pueden estar vacíos", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
-         }
-         
-           // Verificar que no se repita el Legajo con el hashset
+            }
+
+            // Verificar que no se repita el Legajo con el hashset
             boolean existe = false;
             for (Alumno aux : Colegio.alumno) {
-                 if (aux.getLegajo()== legajo) {
+                if (aux.getLegajo() == legajo) {
                     existe = true;
                     break;
                 }
             }
 
             if (existe) {
-                JOptionPane.showMessageDialog(this,"Ya existe un legajo con ese código.","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Ya existe un legajo con ese código.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
             // Crear nuevo legajo y agregar al HashSet
-            Alumno alumno = new Alumno (legajo, apellido, nombre);
+            Alumno alumno = new Alumno(legajo, apellido, nombre);
             Colegio.alumno.add(alumno);
-            
-            
-            JOptionPane.showMessageDialog(this,"El alumno se ha guardado correctamente.");
-         
-                //Simulación de guardado
-                
-         String mensaje= "Legajo: " + legajo + "\n Apellido: " + apellido + "\n Nombre" + nombre;
-         JOptionPane.showMessageDialog(this, "Datos guardados: \n" + mensaje );
-                
-                //Limpiar campos
-                jtLegajo.setText(" ");
-                jtApellido.setText(" ");
-                jtNombre.setText(" ");
-         
-          }catch (NumberFormatException e){
-          
-              JOptionPane.showMessageDialog(this, "El legajo debe ser un número entero válido." , "Error", JOptionPane.ERROR_MESSAGE );
-          }
-  
+
+            JOptionPane.showMessageDialog(this, "El alumno se ha guardado correctamente.");
+
+            //Simulación de guardado
+            String mensaje = "Legajo: " + legajo + "\n Apellido: " + apellido + "\n Nombre: " + nombre;
+            JOptionPane.showMessageDialog(this, "Datos guardados: \n" + mensaje);
+
+            //Limpiar campos
+            jtLegajo.setText(" ");
+            jtApellido.setText(" ");
+            jtNombre.setText(" ");
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(this, "El legajo debe ser un número entero válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        /* Comprobacion por SOUT
+        System.out.println(" --------------------------------------------------------------------");
+        for (Alumno aux : Colegio.alumno) {
+            System.out.println("Legajo: " + aux.getLegajo() + "\nApellido: " + aux.getApellido() + "\nNombre: " + aux.getNombre() + "\n");
+        }
+        System.out.println(" --------------------------------------------------------------------"); */
+
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         // TODO add your handling code here:
-        
+
         jtLegajo.setText(" ");
         jtApellido.setText(" ");
         jtNombre.setText(" ");
-             
+
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -223,7 +221,5 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtLegajo;
     private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
-
-
 
 }

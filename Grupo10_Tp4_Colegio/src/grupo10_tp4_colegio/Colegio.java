@@ -43,8 +43,8 @@ public class Colegio extends javax.swing.JFrame {
 
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jmAlumno = new javax.swing.JMenu();
-        jmiAgregarAlumno = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jmAlumno = new javax.swing.JMenuItem();
         jmMateria = new javax.swing.JMenu();
         jmiAgregarMateria = new javax.swing.JMenuItem();
         jmRegistro = new javax.swing.JMenu();
@@ -65,17 +65,17 @@ public class Colegio extends javax.swing.JFrame {
             .addGap(0, 439, Short.MAX_VALUE)
         );
 
-        jmAlumno.setText("Alumno");
-        jmAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmAlumnoMouseClicked(evt);
+        jMenu1.setText("Alumno");
+
+        jmAlumno.setText("Agregar Alumno");
+        jmAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAlumnoActionPerformed(evt);
             }
         });
+        jMenu1.add(jmAlumno);
 
-        jmiAgregarAlumno.setText("Agregar Alumno");
-        jmAlumno.add(jmiAgregarAlumno);
-
-        jMenuBar1.add(jmAlumno);
+        jMenuBar1.add(jMenu1);
 
         jmMateria.setText("Materia");
 
@@ -92,6 +92,11 @@ public class Colegio extends javax.swing.JFrame {
         jmRegistro.setText("Registro");
 
         jmiInscripcion.setText("Inscripción Materia");
+        jmiInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiInscripcionActionPerformed(evt);
+            }
+        });
         jmRegistro.add(jmiInscripcion);
 
         jMenuBar1.add(jmRegistro);
@@ -119,17 +124,26 @@ public class Colegio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmAlumnoMouseClicked
-
-        VistaMaterias ventana = new VistaMaterias();
-        escritorio.add(ventana);
-        ventana.setVisible(true);
-        
-    }//GEN-LAST:event_jmAlumnoMouseClicked
-
     private void jmiAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiAgregarMateriaActionPerformed
+
+    private void jmiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInscripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiInscripcionActionPerformed
+
+    private void jmAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAlumnoActionPerformed
+        // TODO add your handling code here:
+        VistaAlumnos ventana = new VistaAlumnos();
+        escritorio.add(ventana);
+
+        // Centrar la ventana en el Escritorio
+        int x = (escritorio.getWidth() - ventana.getWidth()) / 2;
+        int y = (escritorio.getHeight() - ventana.getHeight()) / 2;
+        ventana.setLocation(x, y);
+
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,12 +184,12 @@ public class Colegio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jmAlumno;
+    private javax.swing.JMenuItem jmAlumno;
     private javax.swing.JMenu jmMateria;
     private javax.swing.JMenu jmRegistro;
     private javax.swing.JMenu jmSalir;
-    private javax.swing.JMenuItem jmiAgregarAlumno;
     private javax.swing.JMenuItem jmiAgregarMateria;
     private javax.swing.JMenuItem jmiInscripcion;
     private javax.swing.JMenuItem jmiSalir;
@@ -189,7 +203,6 @@ public class Colegio extends javax.swing.JFrame {
         materia.add(new Materia(3,"Laboratoro 1",2025));
    
         alumno.add(new Alumno(1001, "Lopez", "Martin"));
-        alumno.add(new Alumno(1001, "López", "Martin"));
         alumno.add(new Alumno(1002, "Martínez", "Brenda"));
         
          
