@@ -35,35 +35,67 @@ public class Colegio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jmAlumno = new javax.swing.JMenu();
+        jmiAgregarAlumno = new javax.swing.JMenuItem();
+        jmMateria = new javax.swing.JMenu();
+        jmiAgregarMateria = new javax.swing.JMenuItem();
+        jmRegistro = new javax.swing.JMenu();
+        jmiInscripcion = new javax.swing.JMenuItem();
+        jmSalir = new javax.swing.JMenu();
+        jmiSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 607, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 439, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("( EDITAR )");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jmAlumno.setText("Alumno");
+        jmAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                jmAlumnoMouseClicked(evt);
             }
         });
 
-        jMenu2.setText("jMenu2");
-        jMenu1.add(jMenu2);
+        jmiAgregarAlumno.setText("Agregar Alumno");
+        jmAlumno.add(jmiAgregarAlumno);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jmAlumno);
+
+        jmMateria.setText("Materia");
+
+        jmiAgregarMateria.setText("Agregar Materia");
+        jmiAgregarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAgregarMateriaActionPerformed(evt);
+            }
+        });
+        jmMateria.add(jmiAgregarMateria);
+
+        jMenuBar1.add(jmMateria);
+
+        jmRegistro.setText("Registro");
+
+        jmiInscripcion.setText("Inscripción Materia");
+        jmRegistro.add(jmiInscripcion);
+
+        jMenuBar1.add(jmRegistro);
+
+        jmSalir.setText("Salir");
+
+        jmiSalir.setText("Salir");
+        jmSalir.add(jmiSalir);
+
+        jMenuBar1.add(jmSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -71,23 +103,27 @@ public class Colegio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(escritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+    private void jmAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmAlumnoMouseClicked
 
         VistaMaterias ventana = new VistaMaterias();
-        jDesktopPane1.add(ventana);
+        escritorio.add(ventana);
         ventana.setVisible(true);
         
-    }//GEN-LAST:event_jMenu1MouseClicked
+    }//GEN-LAST:event_jmAlumnoMouseClicked
+
+    private void jmiAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarMateriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiAgregarMateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,10 +163,16 @@ public class Colegio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jmAlumno;
+    private javax.swing.JMenu jmMateria;
+    private javax.swing.JMenu jmRegistro;
+    private javax.swing.JMenu jmSalir;
+    private javax.swing.JMenuItem jmiAgregarAlumno;
+    private javax.swing.JMenuItem jmiAgregarMateria;
+    private javax.swing.JMenuItem jmiInscripcion;
+    private javax.swing.JMenuItem jmiSalir;
     // End of variables declaration//GEN-END:variables
 
     //Deje los HashSet y los add para agregar las materias y alumnos
