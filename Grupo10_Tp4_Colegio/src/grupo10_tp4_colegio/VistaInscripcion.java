@@ -37,6 +37,9 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         comboAlumnos = new javax.swing.JComboBox<>();
         comboMaterias = new javax.swing.JComboBox<>();
         btnActualizarLista = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
+
+        setClosable(true);
 
         jLabel1.setText("ALUMNO:");
         jLabel1.setToolTipText("");
@@ -63,6 +66,13 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,7 +91,9 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnInscribir)
-                .addGap(127, 127, 127))
+                .addGap(33, 33, 33)
+                .addComponent(jbSalir)
+                .addGap(17, 17, 17))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +117,9 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnActualizarLista)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(btnInscribir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInscribir)
+                    .addComponent(jbSalir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCantidadMaterias)
                 .addContainerGap())
@@ -144,6 +158,12 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         actualizarComboBox(); // Actualiza la lista de items
     }//GEN-LAST:event_btnActualizarListaActionPerformed
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
     private void actualizarComboBox() {
         // Limpiar combos antes de recargar
         comboAlumnos.removeAllItems();
@@ -166,6 +186,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jbSalir;
     private javax.swing.JLabel lblCantidadMaterias;
     // End of variables declaration//GEN-END:variables
 }
