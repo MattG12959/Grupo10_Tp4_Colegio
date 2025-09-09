@@ -124,14 +124,6 @@ public class Colegio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmiAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarMateriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmiAgregarMateriaActionPerformed
-
-    private void jmiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInscripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmiInscripcionActionPerformed
-
     private void jmAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAlumnoActionPerformed
         // TODO add your handling code here:
         VistaAlumnos ventana = new VistaAlumnos();
@@ -145,6 +137,29 @@ public class Colegio extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_jmAlumnoActionPerformed
 
+    private void jmiAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarMateriaActionPerformed
+       VistaMaterias mat = new VistaMaterias();
+       escritorio.add(mat);
+       
+       int x = (escritorio.getWidth() - mat.getWidth()) / 2;
+        int y = (escritorio.getHeight() - mat.getHeight()) / 2;
+        mat.setLocation(x, y);
+        
+       mat.setVisible(true);
+    }//GEN-LAST:event_jmiAgregarMateriaActionPerformed
+
+    private void jmiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInscripcionActionPerformed
+        VistaInscripcion insc = new VistaInscripcion();
+        escritorio.add(insc);
+        
+        int x = (escritorio.getWidth() - insc.getWidth()) / 2;
+        int y = (escritorio.getHeight() - insc.getHeight()) / 2;
+        insc.setLocation(x, y);
+        
+        insc.setVisible(true);
+    }//GEN-LAST:event_jmiInscripcionActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
