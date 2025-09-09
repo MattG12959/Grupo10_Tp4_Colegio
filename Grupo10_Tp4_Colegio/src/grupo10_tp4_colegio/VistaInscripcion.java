@@ -6,7 +6,7 @@ package grupo10_tp4_colegio;
 import java.util.HashSet;
 import javax.swing.JOptionPane;
 /**
- *
+ **
  * @author alejo
  */
 public class VistaInscripcion extends javax.swing.JInternalFrame {
