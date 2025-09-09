@@ -6,15 +6,11 @@
 package grupo10_tp4_colegio;
 
 /**
- *@author Grupo10 TP4 
- * Altamirano Karina
- * Gianfranco Antonacci Matías
- * Bequis Marcos Ezequiel
- * Dave  Natalia
- * Quiroga Dorzan Alejo
- * Franzinni Tatiana
+ * @author Grupo10 TP4 Altamirano Karina Gianfranco Antonacci Matías Bequis
+ * Marcos Ezequiel Dave Natalia Quiroga Dorzan Alejo Franzinni Tatiana
  */
 public class Materia {
+
     private int idMateria;
     private String nombre;
     private int anio;
@@ -48,7 +44,9 @@ public class Materia {
     public void setAnio(int anio) {
         this.anio = anio;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return nombre; // en Materia
+    }
 }

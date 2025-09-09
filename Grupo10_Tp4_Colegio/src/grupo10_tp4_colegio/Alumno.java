@@ -10,15 +10,11 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
- * @author Grupo10 TP4
- * Altamirano Karina
- * Gianfranco Antonacci Matías
- * Bequis Marcos Ezequiel
- * Dave  Natalia
- * Quiroga Dorzan Alejo
- * Franzinni Tatiana
+ * @author Grupo10 TP4 Altamirano Karina Gianfranco Antonacci Matías Bequis
+ * Marcos Ezequiel Dave Natalia Quiroga Dorzan Alejo Franzinni Tatiana
  */
 public class Alumno {
+
     int legajo;
     private String apellido;
     private String nombre;
@@ -36,8 +32,6 @@ public class Alumno {
         this.apellido = apellido;
         this.nombre = nombre;
     }
-    
-    
 
     public int getLegajo() {
         return legajo;
@@ -70,21 +64,24 @@ public class Alumno {
     public void setMaterias(HashSet<Materia> materias) {
         this.materias = materias;
     }
-    
-    public void agregarMateria(Materia m){
-        if (m != null && !materias.contains(m)){
+
+    public void agregarMateria(Materia m) {
+        if (m != null && !materias.contains(m)) {
             materias.add(m);
         }
     }
-    
+
     /*  --no pide este método pero podría estar
     public void quitarMateria(Materia materia){
             materias.remove(materia);
         }
-    */
-
-    public int cantidadMaterias(){
+     */
+    public int cantidadMaterias() {
         return materias.size();
     }
-    
+
+    @Override
+    public String toString() {
+        return apellido + " " + nombre; // en Alumno
+    }
 }
