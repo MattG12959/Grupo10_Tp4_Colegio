@@ -57,8 +57,6 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCantidadMaterias.setText("Materias inscritas: 0");
-
         btnActualizarLista.setText("Actualizar listas");
         btnActualizarLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,20 +84,22 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboAlumnos, 0, 159, Short.MAX_VALUE)
                     .addComponent(comboMaterias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 21, Short.MAX_VALUE)
+                .addComponent(btnActualizarLista)
+                .addGap(105, 105, 105))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnInscribir)
                 .addGap(33, 33, 33)
                 .addComponent(jbSalir)
-                .addGap(17, 17, 17))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnActualizarLista)
-                    .addComponent(lblCantidadMaterias))
-                .addGap(105, 105, 105))
+                .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblCantidadMaterias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +121,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
                     .addComponent(btnInscribir)
                     .addComponent(jbSalir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCantidadMaterias)
+                .addComponent(lblCantidadMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -131,32 +131,63 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
     private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirActionPerformed
         String nombreAlumno = (String) comboAlumnos.getSelectedItem();
         String nombreMateria = (String) comboMaterias.getSelectedItem();
-    
-    JOptionPane.showMessageDialog(this, 
-        "Alumno seleccionado: " + nombreAlumno + "\n" +
-        "Materia seleccionada: " + nombreMateria);
-    
-    Alumno alumno = null;
+        
+        /*
+        JOptionPane.showMessageDialog(this, 
+            "Alumno seleccionado: " + nombreAlumno + "\n" +
+            "Materia seleccionada: " + nombreMateria);
+        */
+        
+        
+        //Mati:
+        if(nombreAlumno == null || nombreMateria == null){
+            JOptionPane.showMessageDialog(this, "Seleccione alumno y materia para\n"
+                    + "realizar esta acción.");
+            return;
+        }
+        //--^        
+        Alumno alumno = null;//For Alumno
         for (Alumno aux : Colegio.alumno) {
             if ((aux.getApellido() + " " + aux.getNombre()).equals(nombreAlumno)) {
                 alumno = aux;
                 break;
             }
-        }
-
-    Materia materia = null;
+        }        
+  
+        Materia materia = null;//For Materia
         for (Materia aux : Colegio.materia) {
             if (aux.getNombre().equals(nombreMateria)) {
                 materia = aux;
                 break;
             }
+        }       
+        
+        //Mati:
+        if(alumno.getMaterias() != null){
+            if(alumno.getMaterias().contains(materia)){
+                JOptionPane.showMessageDialog(this,"Este alumno ya está inscripto.");
+                lblCantidadMaterias.setText(alumno.getNombre()+" esta inscripto/a en [ " + alumno.getMaterias().size()+ " ] materias.");
+                return;
+            }else{
+                alumno.agregarMateria(materia);
+                JOptionPane.showMessageDialog(this, "Inscripción registrada");
+                lblCantidadMaterias.setText(alumno.getNombre()+" esta inscripto/a en [ " + alumno.getMaterias().size()+ " ] materias.");
+            }
         }
-       
-    JOptionPane.showMessageDialog(this, "Inscripción registrada");     
-    
-    comboAlumnos.setSelectedIndex(-1);
-    comboMaterias.setSelectedIndex(-1);
-       
+        //--^     
+        
+        for(Alumno aux : Colegio.alumno){
+            System.out.println("-------------------------------");
+            System.out.print("Legajo : " + aux.getLegajo() + "\nApellido y nombre: " + aux.getApellido() + " " + aux.getNombre() + "\nMaterias: ");
+            for (Materia m : aux.getMaterias()) {
+                System.out.print(m.getNombre() + ", ");
+            }
+            System.out.println("-------------------------------");
+        }
+        
+        
+        comboAlumnos.setSelectedIndex(-1);
+        comboMaterias.setSelectedIndex(-1);
     }//GEN-LAST:event_btnInscribirActionPerformed
 
     private void btnActualizarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarListaActionPerformed
@@ -182,7 +213,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         for (Materia aux : Colegio.materia) {
             comboMaterias.addItem(aux.toString()); // agrego el objeto Materia
         }
-        lblCantidadMaterias.setText("Materias inscritas: " + Colegio.materia.size());
+        //lblCantidadMaterias.setText("Materias inscritas: " + Colegio.materia.size());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

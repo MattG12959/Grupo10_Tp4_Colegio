@@ -50,7 +50,6 @@ public class Colegio extends javax.swing.JFrame {
         jmRegistro = new javax.swing.JMenu();
         jmiInscripcion = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
-        jmiSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,10 +101,11 @@ public class Colegio extends javax.swing.JFrame {
         jMenuBar1.add(jmRegistro);
 
         jmSalir.setText("Salir");
-
-        jmiSalir.setText("Salir");
-        jmSalir.add(jmiSalir);
-
+        jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmSalirMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jmSalir);
 
         setJMenuBar(jMenuBar1);
@@ -159,6 +159,10 @@ public class Colegio extends javax.swing.JFrame {
         insc.setVisible(true);
     }//GEN-LAST:event_jmiInscripcionActionPerformed
 
+    private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jmSalirMouseClicked
+
     
     /**
      * @param args the command line arguments
@@ -207,7 +211,6 @@ public class Colegio extends javax.swing.JFrame {
     private javax.swing.JMenu jmSalir;
     private javax.swing.JMenuItem jmiAgregarMateria;
     private javax.swing.JMenuItem jmiInscripcion;
-    private javax.swing.JMenuItem jmiSalir;
     // End of variables declaration//GEN-END:variables
 
     //Deje los HashSet y los add para agregar las materias y alumnos
