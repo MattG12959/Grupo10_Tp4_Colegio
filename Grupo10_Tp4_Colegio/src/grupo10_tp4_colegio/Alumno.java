@@ -31,6 +31,7 @@ public class Alumno {
         this.legajo = legajo;
         this.apellido = apellido;
         this.nombre = nombre;
+        this.materias= new HashSet<>();
     }
 
     public int getLegajo() {
@@ -66,7 +67,10 @@ public class Alumno {
     }
 
     public void agregarMateria(Materia m) {
-        if (m != null && !materias.contains(m)) {
+        if (m == null) {
+            materias = new HashSet<>();
+        }
+        if ( m != null && !materias.contains(m)){
             materias.add(m);
         }
     }

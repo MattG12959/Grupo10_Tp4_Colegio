@@ -131,8 +131,12 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
     private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirActionPerformed
         String nombreAlumno = (String) comboAlumnos.getSelectedItem();
         String nombreMateria = (String) comboMaterias.getSelectedItem();
-
-        Alumno alumno = null;
+    
+    JOptionPane.showMessageDialog(this, 
+        "Alumno seleccionado: " + nombreAlumno + "\n" +
+        "Materia seleccionada: " + nombreMateria);
+    
+    Alumno alumno = null;
         for (Alumno aux : Colegio.alumno) {
             if ((aux.getApellido() + " " + aux.getNombre()).equals(nombreAlumno)) {
                 alumno = aux;
@@ -140,17 +144,19 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
             }
         }
 
-        Materia materia = null;
+    Materia materia = null;
         for (Materia aux : Colegio.materia) {
             if (aux.getNombre().equals(nombreMateria)) {
                 materia = aux;
                 break;
             }
         }
-
-        alumno.agregarMateria(materia); // ejecuta, pero no devuelve nada
-        JOptionPane.showMessageDialog(this, "Inscripción registrada");
-        lblCantidadMaterias.setText("Materias inscritas: " + alumno.cantidadMaterias());
+       
+    JOptionPane.showMessageDialog(this, "Inscripción registrada");     
+    
+    comboAlumnos.setSelectedIndex(-1);
+    comboMaterias.setSelectedIndex(-1);
+       
     }//GEN-LAST:event_btnInscribirActionPerformed
 
     private void btnActualizarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarListaActionPerformed
@@ -176,6 +182,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         for (Materia aux : Colegio.materia) {
             comboMaterias.addItem(aux.toString()); // agrego el objeto Materia
         }
+        lblCantidadMaterias.setText("Materias inscritas: " + Colegio.materia.size());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
